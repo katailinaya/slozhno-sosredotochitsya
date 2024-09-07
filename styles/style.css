@@ -2,4 +2,375 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-image: url(../images/cover-image-dark.png);
+  background-color: var(--background-color);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: var(--main-font);
+  font-size: var(--main-font-size);
+  line-height: var(--main-font-line-height);
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-rows: 35% 30% 35%;
+  margin-block-end: 40px;
+  color: var(--accent-color);
+  height: calc(100vh - (100vh - 668px));
+  padding: var(--padding);
+}
+
+.decorated-zone::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: var(--padding);
+  top: var(--padding);
+  block-size: 25px;
+  inline-size: 25px;
+  border-inline-end: 1px solid var(--header-decorative-element);
+  border-block-start: 1px solid var(--header-decorative-element);
+}
+
+.decorated-zone::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: var(--padding);
+  bottom: var(--padding);
+  block-size: 25px;
+  inline-size: 25px;
+  border-inline-start: 1px solid var(--header-decorative-element);
+  border-block-end: 1px solid var(--header-decorative-element);
+}
+
+.header__decorative_element {
+  text-transform: uppercase;
+  position: absolute;
+  top: var(--padding);
+  right: var(--padding);
+  padding-inline-end: 28px;
+}
+
+.header__decorative_element::after {
+  content: "";
+  position: absolute;
+  height: 9px;
+  width: 9px;
+  background-color: currentColor;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px currentColor;
+  margin: 8px;
+  top: 0;
+  right: 0;
+}
+
+.header__theme-menu {
+  color: var(--button-color);
+  margin-block-start: 65px;
+  align-self: start;
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  text-transform: lowercase;
+  background-color: transparent;
+  border: none;
+  padding: 0 13px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid currentColor;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  border: 1px solid currentColor;
+}
+
+.header__title {
+  color: var(--secondary-accent-color);
+  text-shadow: var(--text-shadow);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
+}
+
+.header__description {
+  align-self: center;
+}
+
+.main-content {
+  padding: 0 var(--padding);
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--title-decor);
+  font-weight: bold;
+}
+
+.main-content__heading {
+  font-size: var(--main-font-size);
+  color: var(--heading-color);
+  margin-block-end: 20px;
+}
+
+.main-content__subheading {
+  font-size: var(--main-font-size);
+  margin-block-end: 10px;
+}
+
+.main-content__subtitle {
+  font-weight: normal;
+  margin-block-end: 10px;
+}
+
+.main-content__subheading + .main-content__articles-group {
+  margin-block-start: 20px;
+}
+
+.main-content__article {
+  margin-block-end: 20px;
+}
+
+.main-content__article:last-child {
+  margin-block-end: 0;
+}
+
+.main-content__paragraph {
+  color: var(--p-text-color);
+}
+
+.main-content__link {
+  text-shadow: var(--link-shadow);
+  text-decoration: none;
+}
+
+.main-content__link:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.main-content__link:focus {
+  outline: none;
+}
+
+.main-content__link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.main-content__chapter {
+  margin-block-end: 50px;
+}
+
+.main-content__gallery-image-set {
+  display: grid;
+  gap: 10px;
+  margin-block-end: 40px;
+}
+
+.main-content__gallery-image {
+  width: 100%;
+}
+
+.footer {
+  display: grid;
+  position: relative;
+  color: var(--secondary-accent-color);
+  height: 100vh;
+  min-height: 668px;
+  padding: var(--padding);
+}
+
+.footer__heading {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  color: var(--main-heading-color);
+  text-shadow: var(--text-shadow);
+  align-self: center;
+  margin: auto;
+}
+
+@media (width >= 768px) {
+  .page {
+    --padding: 20px;
+  }
+
+  .header {
+    min-height: 1024px;
+    grid-template-rows: 38% 17% 45%;
+    margin-block-end: 60px;
+  }
+
+  .header__theme-menu {
+    justify-self: end;
+    align-self: center;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    position: relative;
+    left: -20px;
+    align-self: end;
+  }
+
+  .header__description {
+    width: 50%;
+    justify-self: end;
+  }
+
+  .why-hard-to-focus {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: var(--padding);
+  }
+
+  .main-content__chapter {
+    margin-block-end: 80px;
+  }
+
+  .reasons .main-content__heading {
+    width: calc((100% - var(--padding)) / 3);
+  }
+
+  .how-to-focus {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: var(--padding);
+  }
+
+  .main-content__gallery .main-content__subheading {
+    margin-block-end: var(--padding);
+  }
+
+  .main-content__gallery-image-set {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 24.6% 29.5% 40.76%;
+    gap: var(--padding);
+    margin-block-end: 60px;
+  }
+
+  .main-content__gallery-image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  .sunset {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+  }
+
+  .ice-cream {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+  }
+
+  .tape {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+  }
+
+  .street {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: span 2;
+  }
+
+  .footer {
+    min-height: 1024px;
+  }
+
+  .footer__heading {
+    align-self: center;
+    justify-self: center;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (width >= 1024px) {
+  .header {
+    min-height: 768px;
+    grid-template-rows: 40% 20% 40%;
+  }
+
+  .header__title {
+    align-self: center;
+  }
+
+  .header__description {
+    width: 50%;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .why-hard-to-focus {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--padding);
+  }
+
+  .why-hard-to-focus .main-content__articles {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+  }
+
+  .reasons .main-content__articles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--padding);
+  }
+
+  .how-to-focus {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--padding);
+  }
+
+  .how-to-focus .main-content__articles {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+  }
+
+  .header__theme-menu {
+    margin: 0;
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: baseline;
+  }
+
+  .main-content__gallery-image-set {
+    grid-template-rows: 24.6% 30.05% 41.5%;
+  }
+  .footer {
+    min-height: 768px;
+  }
+  .footer__heading {
+    align-self: center;
+  }
 }
